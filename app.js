@@ -78,12 +78,30 @@ function init_vk() {
         console.log('vk init');
         // var p = window.location.search;
         access_token = get_local_req('access_token')
- 
+
+        VK.addCallback('onRequestFail', function f(err){
+            console.log(err);
+        });
+
+        VK.addCallback('onRequestSuccess', function f(){
+            console.log('request -------')
+        });
+        
+        VK.Widgets.Comments('vk_comments', {limit: 10, width: '627', attach: '*'});
+        VK.callMethod("showSettingsBox", 8214);
+        VK.api("wall.post", {"message": "Hello!", "v":"5.73"}, function (data) {
+            alert("Post ID:" + data.response.post_id);
+        });
         JSONP_req("users.get", "fields=photo_50,first_name,last_name", access_token,"5.130", "callbackUserGet")
         JSONP_req("wall.post", "message=SMALL", access_token, "5.130", "callbackPublish")
         JSONP_req("account.getAppPermissions", "", access_token, "5.130", "callbackPublish")
         
+
+
+
+
      }, function() {
+         console.log('initialization failed')
         // API initialization failed
         // Can reload page here
    }, '5.130');
