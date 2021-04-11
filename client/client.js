@@ -51,6 +51,7 @@ function testSecure() {
     var token_tt = get_local_req("access_token")
     var token_servis = "acc8a786acc8a786acc8a7866bacbb610daacc8acc8a786f39be8a75db11d532fa55b7b"
     alert(token_tt)
+    console.log(token_tt)
 
     
     fetch("https://cors-anywhere.herokuapp.com/corsdemo/"+`https://api.vk.com/method/secure.checkToken?token=${token_tt}&access_token=${token_servis}&v=5.130`)
