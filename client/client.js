@@ -1,3 +1,5 @@
+// fetch('http://localhost:8080/posts', { mode: 'no-cors' });
+
 var config = {
     apiKey: "AIzaSyDyVzefrRcULqfJlHsHN_1fQkdjJT4--hY",
     authDomain: "applied-talon-301019.firebaseapp.com",
@@ -19,24 +21,17 @@ initServer()
 
 // Инициализация на сервере
 
+
+
 function initServer() {
-    // 1. Создаём новый объект XMLHttpRequest
-    var xhr = new XMLHttpRequest();
-    // 2. Конфигурируем его: GET-запрос на URL 'phones.json'
     var url_str = "api_url=api_url=?api_url=https://api.vk.com/api.php&api_id=7790811&api_settings=0&viewer_id=116214318&viewer_type=0&sid=2af2b28454c40d204e2c4a1eaa8b5c4a7b8fe7ff497b032cb5d2256a04c05c58655e3d3331c15d16ac44d&secret=b32bf9fac2&access_token=5f1d50d354e3cbfa81a41de1a8c784eae83d5052e1a9e62ea6ab8fe617128fdd5bd0048f376084a43ed27&user_id=0&group_id=0&is_app_user=1&auth_key=08927e87c9dbb06571b2a58b2406077d&language=0&parent_language=0&is_secure=1&stats_hash=b81f1caf7bb756fc81&ads_app_id=7790811_d8c76efe7b0edebe61&referrer=unknown&lc_name=ebd57f91&platform=web&whitelist_scopes=friends,photos,video,stories,pages,status,notes,wall,docs,groups,stats,market,ads,notifications&group_whitelist_scopes=stories,photos,app_widget,messages,wall,docs,manage&is_widescreen=0&hash=''"
-    // xhr.open('GET', 'http://localhost:3000/token?id=3&name=Tome', false);
-    xhr.open('GET', 'http://localhost:3000/token?' + url_str, false);
-    // 3. Отсылаем запрос
-    xhr.send();
-    // 4. Если код ответа сервера не 200, то это ошибка
-    if (xhr.status != 200) {
-        // обработать ошибку
-        alert( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
-    } else {
-        // вывести результат
-        alert( xhr.responseText ); // responseText -- текст ответа.
-        initFireBase(xhr.responseText)
-    }
+
+    fetch('http://localhost:3000/token?' + url_str)
+        .then(res => res.text())
+        .then(text => {
+            console.log(text); 
+            initFireBase(text);
+        })
 }
 
 
