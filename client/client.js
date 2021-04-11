@@ -42,7 +42,7 @@ function initFireBase(token) {
             let dbRef = firebase
             .database()
             .ref()
-            .child("object-key");
+            .child("116214318/test/object-key");
             let placeholder = document.getElementById(["placeholder"]);
             dbRef.on("value", snap => (placeholder.innerText = snap.val()));
         })
