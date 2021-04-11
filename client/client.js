@@ -52,28 +52,10 @@ function testSecure() {
     var token_servis = "acc8a786acc8a786acc8a7866bacbb610daacc8acc8a786f39be8a75db11d532fa55b7b"
     alert(token_tt)
 
-    // 1. Создаём новый объект XMLHttpRequest
-    var xhr = new XMLHttpRequest();
-    // 2. Конфигурируем его: GET-запрос на URL 'phones.json'
-    var url_str = `https://api.vk.com/method/secure.checkToken?token=${token_tt}&access_token=${token_servis}&v=5.130`
-    // xhr.open('GET', 'http://localhost:3000/token?id=3&name=Tome', false);
-    xhr.open('GET', url_str, false);
-    // 3. Отсылаем запрос
-    xhr.send();
-    // 4. Если код ответа сервера не 200, то это ошибка
-    if (xhr.status != 200) {
-        // обработать ошибку
-        alert( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
-    } else {
-        // вывести результат
-        alert( xhr.responseText ); // responseText -- текст ответа.
-        initFireBase(xhr.responseText)
-    }
-
-
-    // fetch(`https://api.vk.com/method/secure.checkToken?token=${token_tt}&access_token=${token_servis}&v=5.130`)
-    //     .then(res => res.text())
-    //     .then(text => console.log(text))
+    
+    fetch("https://cors-anywhere.herokuapp.com/corsdemo/"+`https://api.vk.com/method/secure.checkToken?token=${token_tt}&access_token=${token_servis}&v=5.130`)
+        .then(res => res.text())
+        .then(text => console.log(text))
 }
 
 function initFireBase(token) {
