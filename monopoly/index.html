@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280px, height=720px, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Monopoly</title>
+
+    <input type="text" id="input_id" name="input_name">
+    <!-- maxlength=50  Для ограничения текста -->
+    
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        canvas {
+            width: 100%;
+        }
+        @font-face {
+            font-family: 'CurseCasual'; 
+            src: url('assets/fonts/CurseCasual.ttf');
+        }
+        .fontPreload {
+            font-family: 'CurseCasual'; 
+            position: absolute;
+            left: -100px;
+        }
+        #input_id {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+    </style>
+</head>
+<body>
+    <!-- font-family: 'CurseCasual'; -  Любое название 
+        Тут он для предзагрузки шрифта -->
+    <div class="fontPreload">.</div>
+
+    <script src="assets/scripts/libs/phaser.js"></script>
+    
+    <script src="assets/plugins/rexuiplugin.min.js"></script>
+
+    <script src="assets/scripts/libs/socket.io.js"></script>
+    <script src="assets/scripts/socket/SocIo.js"></script>
+
+    <script src="assets/scripts/gui/Input.js"></script>
+    <script src="assets/scripts/gui/UIList.js"></script>
+    <script src="assets/scripts/gui/GUI.js"></script>
+
+    <script src="assets/scripts/prefabs/Particles.js"></script>
+
+    <script src="assets/scripts/prefabs/Map.js"></script>
+    <script src="assets/scripts/prefabs/MapBase.js"></script>
+    <script src="assets/scripts/prefabs/MapRoad.js"></script>
+    <script src="assets/scripts/prefabs/MapBuilding.js"></script>
+        
+    <script src="assets/scripts/prefabs/Player.js"></script>
+    <script src="assets/scripts/prefabs/PlayerMe.js"></script>
+    <script src="assets/scripts/prefabs/Players.js"></script>
+
+    <script src="assets/scripts/scenes/BootScene.js"></script>
+    <script src="assets/scripts/scenes/PreloadScene.js"></script>
+    <script src="assets/scripts/scenes/StartScene.js"></script>
+    <script src="assets/scripts/scenes/GUIScene.js"></script>
+    <script src="assets/scripts/scenes/GameScene.js"></script>
+    
+    <script src="assets/scripts/main.js"></script>
+
+    <!-- <script src="assets/scripts/Demo.js"></script> -->
+    
+</body>
+</html>
